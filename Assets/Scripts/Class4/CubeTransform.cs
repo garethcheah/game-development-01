@@ -47,7 +47,11 @@ public class CubeTransform : MonoBehaviour
 
     private void ChangeColour()
     {
-        if (translateSpeed == 0f) {
+        if (translateSpeed == 0f && rotateSpeed == 0f)
+        {
+            meshRenderer.material.color = Color.black;
+        }
+        else if (translateSpeed == 0f) {
             meshRenderer.material.color = Color.red;
         }
         else if (translateSpeed >= 0.2f)
@@ -57,11 +61,6 @@ public class CubeTransform : MonoBehaviour
         else
         {
             meshRenderer.material.color = Color.green;
-        }
-
-        if (translateSpeed == 0f && rotateSpeed == 0f)
-        {
-            meshRenderer.material.color = Color.black;
         }
 
         if (translateSpeed == 0.5f || rotateSpeed == 0.5f)
