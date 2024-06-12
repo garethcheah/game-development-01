@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 2404651929556954206}
   - component: {fileID: 3696828864380583964}
   - component: {fileID: -6596174456763755778}
+  - component: {fileID: 5431987474769345205}
   m_Layer: 0
   m_Name: BallYellow
   m_TagString: Untagged
@@ -165,3 +166,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &5431987474769345205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5844821952562284272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53bd410565b0d1544b1a938606db61bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
