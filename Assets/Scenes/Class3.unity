@@ -184,7 +184,7 @@ PrefabInstance:
     - target: {fileID: 8074403120381798425, guid: 1b4555fecc3d12f4380616df8c5b2b95,
         type: 3}
       propertyPath: m_Name
-      value: Bowling Pin (3)
+      value: Bowling Pin 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -470,7 +470,7 @@ PrefabInstance:
     - target: {fileID: 8074403120381798425, guid: 1b4555fecc3d12f4380616df8c5b2b95,
         type: 3}
       propertyPath: m_Name
-      value: Bowling Pin (7)
+      value: Bowling Pin 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 466931424}
   m_Layer: 0
   m_Name: Ball Return
-  m_TagString: Untagged
+  m_TagString: Pit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -653,8 +653,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1.4237969}
-  m_Center: {x: 0, y: 0, z: 0.004584752}
+  m_Size: {x: 1.279973, y: 1, z: 1.4237969}
+  m_Center: {x: -0.13998762, y: 0, z: 0.0045847194}
 --- !u!114 &466931424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,7 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d96e561187a454499f1d5235a2ee09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 1706267050}
+  _playerController: {fileID: 1706267050}
 --- !u!1001 &605894606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -729,7 +729,7 @@ PrefabInstance:
     - target: {fileID: 8074403120381798425, guid: 1b4555fecc3d12f4380616df8c5b2b95,
         type: 3}
       propertyPath: m_Name
-      value: Bowling Pin (2)
+      value: Bowling Pin 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -882,7 +882,7 @@ PrefabInstance:
     - target: {fileID: 8074403120381798425, guid: 1b4555fecc3d12f4380616df8c5b2b95,
         type: 3}
       propertyPath: m_Name
-      value: Bowling Pin (9)
+      value: Bowling Pin 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -956,7 +956,7 @@ PrefabInstance:
     - target: {fileID: 8074403120381798425, guid: 1b4555fecc3d12f4380616df8c5b2b95,
         type: 3}
       propertyPath: m_Name
-      value: Bowling Pin (5)
+      value: Bowling Pin 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1030,7 +1030,7 @@ PrefabInstance:
     - target: {fileID: 8074403120381798425, guid: 1b4555fecc3d12f4380616df8c5b2b95,
         type: 3}
       propertyPath: m_Name
-      value: Bowling Pin
+      value: Bowling Pin 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1104,7 +1104,7 @@ PrefabInstance:
     - target: {fileID: 8074403120381798425, guid: 1b4555fecc3d12f4380616df8c5b2b95,
         type: 3}
       propertyPath: m_Name
-      value: Bowling Pin (6)
+      value: Bowling Pin 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1235,6 +1235,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 88.881, y: 0, z: 0}
+--- !u!1 &1391408382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1391408384}
+  - component: {fileID: 1391408383}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1391408383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391408382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 348a1c777d5917342814594769b3364a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerController: {fileID: 1706267050}
+--- !u!4 &1391408384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391408382}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1452794272 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4271740314904405151, guid: fb7866d5388a3914fabc4f9ad9ec2852,
@@ -1295,15 +1340,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   appliedForce: 50
-  gameObjects:
+  bowlingBalls:
   - {fileID: 5844821952562284272, guid: 5c8d8b0f705e49f4d907555d3761b2b3, type: 3}
   - {fileID: 5844821952562284272, guid: 8b83057f6a9e1a443afa11c56ca981f6, type: 3}
   isReleased: 0
-  aimPropertyName: Aiming
-  maxHorizontal: 0.3
-  minHorizontal: -0.3
-  animator: {fileID: 1452794273}
-  rbBall: {fileID: 0}
+  _aimPropertyName: Aiming
+  _maxHorizontal: 0.5
+  _minHorizontal: -0.5
+  _animator: {fileID: 1452794273}
+  _rbBall: {fileID: 0}
 --- !u!1 &1706655754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,14 +1380,14 @@ Transform:
   m_Children:
   - {fileID: 974610459}
   - {fileID: 2013403043}
+  - {fileID: 605894607}
   - {fileID: 114661732}
+  - {fileID: 1768305357}
+  - {fileID: 919210748}
   - {fileID: 1120118357}
   - {fileID: 443221896}
   - {fileID: 2081445677}
   - {fileID: 830387595}
-  - {fileID: 1768305357}
-  - {fileID: 919210748}
-  - {fileID: 605894607}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1768305356
@@ -1406,7 +1451,7 @@ PrefabInstance:
     - target: {fileID: 8074403120381798425, guid: 1b4555fecc3d12f4380616df8c5b2b95,
         type: 3}
       propertyPath: m_Name
-      value: Bowling Pin (4)
+      value: Bowling Pin 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1487,6 +1532,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8848342967542018032, guid: 5c8d8b0f705e49f4d907555d3761b2b3,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1391408383}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1661,7 +1711,7 @@ PrefabInstance:
     - target: {fileID: 8074403120381798425, guid: 1b4555fecc3d12f4380616df8c5b2b95,
         type: 3}
       propertyPath: m_Name
-      value: Bowling Pin (1)
+      value: Bowling Pin 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1735,7 +1785,7 @@ PrefabInstance:
     - target: {fileID: 8074403120381798425, guid: 1b4555fecc3d12f4380616df8c5b2b95,
         type: 3}
       propertyPath: m_Name
-      value: Bowling Pin (8)
+      value: Bowling Pin 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1758,3 +1808,4 @@ SceneRoots:
   - {fileID: 1137240165}
   - {fileID: 1706655755}
   - {fileID: 1706267049}
+  - {fileID: 1391408384}

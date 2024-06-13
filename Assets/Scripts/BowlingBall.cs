@@ -6,9 +6,9 @@ namespace BowlingAssingment
 {
     public class BowlingBall : MonoBehaviour
     {
-        [SerializeField]
-        private float appliedForce = 10f;
-        private Rigidbody rigidbody;
+        private Rigidbody _rigidbody;
+
+        [SerializeField] private float appliedForce = 10f;
 
         // Awake is called before Start
         private void Awake()
@@ -19,7 +19,7 @@ namespace BowlingAssingment
         // Start is called before the first frame update
         void Start()
         {
-            rigidbody = GetComponent<Rigidbody>();
+            _rigidbody = GetComponent<Rigidbody>();
         }
 
         // Update is called once per frame
@@ -39,7 +39,7 @@ namespace BowlingAssingment
 
         private void AddForce()
         {
-            rigidbody.AddForce(Vector3.right.normalized * appliedForce, ForceMode.Impulse);
+            _rigidbody.AddForce(Vector3.right.normalized * appliedForce, ForceMode.Impulse);
         }
     }
 }

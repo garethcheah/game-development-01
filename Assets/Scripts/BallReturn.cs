@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BallReturn : MonoBehaviour
 {
-    private static string tagPlayerController = "PlayerController";
+    private static string _tagPlayerController = "PlayerController";
 
     [SerializeField]
-    private PlayerController playerController;
+    private PlayerController _playerController;
 
     // Start is called before the first frame update
     void Start()
@@ -25,10 +25,10 @@ public class BallReturn : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Check if object that caused the trigger is a ball (PlayerController)
-        if (other.gameObject.transform.parent.tag == tagPlayerController)
+        if (other.gameObject.transform.parent.CompareTag(_tagPlayerController))
         {
             // Set bool back to false to allow another bowling ball to instantiate
-            playerController.isReleased = false;
+            _playerController.isReleased = false;
         }
     }
 }
