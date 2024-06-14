@@ -5,13 +5,14 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     private GameManager _gameManager;
-    public int _totalScore;
-    private int[] _frames = new int[10];
+    private int _totalScore;
+    private int _consecutiveStrikesCounter = 0;
+    private int[] _scoresPerFrame = new int[10];
     private bool _isSpare = false;
     private bool _isStrike = false;
 
-    public int currentFrame; //{ get; private set; }
-    public int currentThrow; //{ get; private set; }
+    public int currentFrame { get; private set; }
+    public int currentThrow { get; private set; }
 
     // Start is called before the first frame update
     void Start()
@@ -24,9 +25,9 @@ public class ScoreManager : MonoBehaviour
     {
         _totalScore = 0;
 
-        foreach (int frame in _frames)
+        foreach (int frameScore in _scoresPerFrame)
         {
-            _totalScore += frame;
+            _totalScore += frameScore;
         }
 
         return _totalScore;
@@ -37,12 +38,20 @@ public class ScoreManager : MonoBehaviour
         //Ball 1
         if (currentThrow == 1)
         {
-            _frames[currentFrame - 1] += score;
+            _scoresPerFrame[currentFrame - 1] += score;
+
+            if (_consecutiveStrikesCounter > 0 && currentFrame > 2)
+            {
+                // For consecutive strikes, add current score back 2 frames
+                _scoresPerFrame[currentFrame - 3] += score;
+                _consecutiveStrikesCounter--;
+            }
 
             // Parallel check for spare
             if (_isSpare)
             {
-                _frames[currentFrame - 2] += score;
+                // For spares, add current score back 1 frame
+                _scoresPerFrame[currentFrame - 2] += score;
                 _isSpare = false;
             }
 
@@ -53,6 +62,13 @@ public class ScoreManager : MonoBehaviour
                     currentThrow++; // Wait for ball 2
                 } else
                 {
+                    if (_isStrike)
+                    {
+                        // If _isStrike is already true due to strike in previous frame, add current score back 1 frame and increment _consecutiveStrikesCounter
+                        _scoresPerFrame[currentFrame - 2] += score;
+                        _consecutiveStrikesCounter++;
+                    }
+                    
                     _isStrike = true;
                     currentFrame++; // Move to next frame as full score obtained
                 }
@@ -70,15 +86,15 @@ public class ScoreManager : MonoBehaviour
         //Ball 2
         if (currentThrow == 2)
         {
-            _frames[currentFrame - 1] += score;
+            _scoresPerFrame[currentFrame - 1] += score;
 
             if (_isStrike)
             {
-                _frames[currentFrame - 2] += _frames[currentFrame - 1];
+                _scoresPerFrame[currentFrame - 2] += _scoresPerFrame[currentFrame - 1];
                 _isStrike = false;
             }
 
-            if (_frames[currentFrame - 1] == 10) // Is total frame score 10?
+            if (_scoresPerFrame[currentFrame - 1] >= 10) // Why greater or equal to 10? It is possible to bowl 2 strikes in the first 2 throws of the 10th frame (i.e. points in frame = 20)
             {
                 if (currentFrame == 10)
                 {
@@ -110,7 +126,7 @@ public class ScoreManager : MonoBehaviour
         //Ball 3
         if (currentThrow == 3 && currentFrame == 10)
         {
-            _frames[currentFrame - 1] += score;
+            _scoresPerFrame[currentFrame - 1] += score;
             currentFrame = 0;
             currentThrow = 0;
             return;
@@ -122,6 +138,6 @@ public class ScoreManager : MonoBehaviour
         _totalScore = 0;
         currentFrame = 1;
         currentThrow = 1;
-        _frames = new int[10];
+        _scoresPerFrame = new int[10];
     }
 }
