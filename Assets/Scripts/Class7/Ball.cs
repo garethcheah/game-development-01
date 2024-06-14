@@ -16,7 +16,7 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Pin"))
         {
-            _gameManager.IncrementPinsHitByBall();
+            Debug.Log("Ball collided with a pin.");
         }
     }
 

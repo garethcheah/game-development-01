@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Pin : MonoBehaviour
 {
+    public bool isFallen;
+
     private Vector3 _startPosition;
     private Quaternion _startRotation;
     private Rigidbody _rb;
@@ -18,16 +20,18 @@ public class Pin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (HasChanged())
+        if (HasFallen() && !isFallen)
         {
+            isFallen = true;
             Debug.Log(transform.parent.name + " has changed position/rotation");
         }
     }
 
     // Need to account for pins that fall off the game area and continue to change position/rotation
-    public bool HasChanged()
+    public bool HasFallen()
     {
-        return transform.localPosition != _startPosition || transform.localRotation != _startRotation;
+        bool rotationChanged = Quaternion.Angle(_startRotation, transform.localRotation) > 5f;
+        return transform.localRotation != _startRotation;
     }
 
     public void ResetPin()
