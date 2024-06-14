@@ -25,7 +25,7 @@ public class Ball : MonoBehaviour
         if (other.gameObject.CompareTag("Pit"))
         {
             Destroy(gameObject);
-            _gameManager.StartThrow();
+            _gameManager.SetNextThrow();
         }
     }
 }

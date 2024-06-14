@@ -20,25 +20,33 @@ public class Pin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (HasFallen() && !isFallen)
+        if (gameObject.activeSelf)
         {
-            isFallen = true;
-            Debug.Log(transform.parent.name + " has changed position/rotation");
+            if (HasFallen() && !isFallen)
+            {
+                isFallen = true;
+                Debug.Log(transform.parent.name + " has fallen.");
+            }
         }
+        
     }
 
-    // Need to account for pins that fall off the game area and continue to change position/rotation
     public bool HasFallen()
     {
         bool rotationChanged = Quaternion.Angle(_startRotation, transform.localRotation) > 5f;
-        return transform.localRotation != _startRotation;
+
+        return rotationChanged;
     }
 
     public void ResetPin()
     {
+        gameObject.SetActive(true);
         _rb.velocity = Vector3.zero;
+        _rb.isKinematic = true;
         transform.localRotation = _startRotation;
         transform.localPosition = _startPosition;
+        isFallen = false;
+        _rb.isKinematic = false;
     }
 
     private void StoreStartVectors()
