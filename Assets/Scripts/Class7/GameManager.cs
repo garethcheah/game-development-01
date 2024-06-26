@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private ScoreManager _scoreManager;
+    [SerializeField] private UIManager _uiManager;
     [SerializeField] private Pin[] pins;
 
     // Start is called before the first frame update
@@ -55,19 +56,29 @@ public class GameManager : MonoBehaviour
 
     public void SetNextThrow()
     {
-        Invoke("NextThrow", 3.0f);
+        Invoke("NextThrow", 3.0f); // 3-second delay before next throw
     }
 
     private void NextThrow()
     {
+        int fallenPins = CalculateFallenPins();
+
+        _scoreManager.SetFrameScore(fallenPins);
+
         if (_scoreManager.currentFrame == 0)
         {
-            Debug.Log("Total score: " + _scoreManager.CalculateTotalScore().ToString());
-        } else
-        {
-            _scoreManager.SetFrameScore(CalculateFallenPins());
-            _scoreManager.CalculateTotalScore();
-            StartThrow();
+            _uiManager.ShowGameOver(_scoreManager.CalculateTotalScore());
         }
+
+        int frameTotal = 0;
+
+        // Calculate frame totals for UI
+        for (int i = 0; i < _scoreManager.currentFrame - 1; i++)
+        {
+            frameTotal += _scoreManager.GetFrameScore()[i];
+            _uiManager.SetFrameTotal(i + 1, frameTotal);
+        }
+
+        StartThrow();
     }
 }

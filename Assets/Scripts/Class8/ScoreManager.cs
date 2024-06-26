@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    [SerializeField] private UIManager _uiManager;
+
     private GameManager _gameManager;
     private int _totalScore;
     private int _consecutiveStrikesCounter = 0;
@@ -21,6 +23,11 @@ public class ScoreManager : MonoBehaviour
         ResetScore();
     }
 
+    public int[] GetFrameScore()
+    {
+        return _scoresPerFrame;
+    }
+
     public int CalculateTotalScore()
     {
         _totalScore = 0;
@@ -35,7 +42,10 @@ public class ScoreManager : MonoBehaviour
 
     public void SetFrameScore(int score)
     {
-        //Ball 1
+        // Set UI
+        _uiManager.SetFrameValues(currentFrame, currentThrow, score);
+
+        // Ball 1
         if (currentThrow == 1)
         {
             _scoresPerFrame[currentFrame - 1] += score;
@@ -71,19 +81,20 @@ public class ScoreManager : MonoBehaviour
                     
                     _isStrike = true;
                     currentFrame++; // Move to next frame as full score obtained
+                    _uiManager.ShowStrike();
                 }
 
                 // Reset pins
                 _gameManager.ResetAllPins();
             } else
             {
-                currentThrow++; //wait for Ball 2
+                currentThrow++; // Wait for Ball 2
             }
 
             return;
         }
 
-        //Ball 2
+        // Ball 2
         if (currentThrow == 2)
         {
             _scoresPerFrame[currentFrame - 1] += score;
@@ -104,6 +115,7 @@ public class ScoreManager : MonoBehaviour
                     _isSpare = true; // Because we are on the 2nd ball, this is where a spare is awarded. Spares are calculated on ball 1 (see above).
                     currentFrame++;
                     currentThrow = 1;
+                    _uiManager.ShowSpare();
                 }
             } else
             {
@@ -118,12 +130,12 @@ public class ScoreManager : MonoBehaviour
                 }
             }
 
-            //Reset pins
+            // Reset pins
             _gameManager.ResetAllPins();
             return;
         }
 
-        //Ball 3
+        // Ball 3
         if (currentThrow == 3 && currentFrame == 10)
         {
             _scoresPerFrame[currentFrame - 1] += score;
