@@ -988,7 +988,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 300797793}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1905874600}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &300797793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1216,7 +1228,7 @@ GameObject:
   - component: {fileID: 431296429}
   - component: {fileID: 431296428}
   m_Layer: 0
-  m_Name: UIManager
+  m_Name: UI Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3069,7 +3081,7 @@ GameObject:
   - component: {fileID: 1391408384}
   - component: {fileID: 1391408383}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3127,7 +3139,7 @@ GameObject:
   - component: {fileID: 1418540080}
   - component: {fileID: 1418540079}
   m_Layer: 0
-  m_Name: ScoreManager
+  m_Name: Score Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3831,7 +3843,7 @@ GameObject:
   - component: {fileID: 1706267049}
   - component: {fileID: 1706267050}
   m_Layer: 0
-  m_Name: PlayerController
+  m_Name: Player Controller
   m_TagString: PlayerController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4482,6 +4494,51 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1884536289}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1905874599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1905874601}
+  - component: {fileID: 1905874600}
+  m_Layer: 0
+  m_Name: Screen Changer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1905874600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905874599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f32ca3aa753c1b429edd4952a5e053d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildIndexToLoad: 0
+--- !u!4 &1905874601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905874599}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 216.43423, y: 130.64786, z: -1.2943691}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1922883353
 GameObject:
   m_ObjectHideFlags: 0
@@ -5247,3 +5304,4 @@ SceneRoots:
   - {fileID: 326047498}
   - {fileID: 1583393063}
   - {fileID: 431296429}
+  - {fileID: 1905874601}

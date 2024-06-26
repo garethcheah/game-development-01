@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 100092085}
   - component: {fileID: 100092084}
   m_Layer: 0
-  m_Name: SceneChanger
+  m_Name: Scene Changer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
