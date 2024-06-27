@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _minHorizontal = -0.5f;
     [SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody _rbBall;
+    [SerializeField] private SoundManager _soundManager;
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +74,7 @@ public class PlayerController : MonoBehaviour
             _rbBall = _currentBall.GetComponent<Rigidbody>();
             _rbBall.AddForce(_animator.gameObject.transform.forward.normalized * appliedForce, ForceMode.Impulse);
             isReleased = true;
+            _soundManager.PlaySound("throw");
         }
     }
 }

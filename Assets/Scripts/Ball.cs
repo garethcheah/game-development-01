@@ -22,10 +22,14 @@ public class Ball : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Pit"))
+        if (other.CompareTag("Pit"))
         {
             Destroy(gameObject);
             _gameManager.SetNextThrow();
+        }
+        else if (other.CompareTag("PinsCamera"))
+        {
+            _gameManager.SwitchCamera();
         }
     }
 }

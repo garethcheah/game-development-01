@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private bool _isGamePlaying = false;
-
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private ScoreManager _scoreManager;
     [SerializeField] private UIManager _uiManager;
     [SerializeField] private Pin[] pins;
+    [SerializeField] private Camera _mainCamera, _pinsCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +18,8 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        _isGamePlaying = true;
+        _mainCamera.enabled = true;
+        _pinsCamera.enabled = false;
         StartThrow();
     }
 
@@ -59,6 +59,12 @@ public class GameManager : MonoBehaviour
         Invoke("NextThrow", 3.0f); // 3-second delay before next throw
     }
 
+    public void SwitchCamera()
+    {
+        _mainCamera.enabled = !_mainCamera.enabled;
+        _pinsCamera.enabled = !_pinsCamera.enabled;
+    }
+
     private void NextThrow()
     {
         int fallenPins = CalculateFallenPins();
@@ -80,5 +86,6 @@ public class GameManager : MonoBehaviour
         }
 
         StartThrow();
+        SwitchCamera();
     }
 }

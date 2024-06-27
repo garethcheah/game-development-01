@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _UISpareMessage;
     [SerializeField] private GameObject _UIGameOver;
     [SerializeField] private TMP_Text _scoreText;
+    [SerializeField] private SoundManager _soundManager;
 
     private FrameUI[] _frames;
 
@@ -46,6 +47,7 @@ public class UIManager : MonoBehaviour
     public void ShowStrike()
     {
         _UIStrikeMessage.SetActive(true);
+        _soundManager.PlaySound("strike");
         Invoke("HideStrike", 2.0f);
     }
 
