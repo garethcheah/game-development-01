@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _UIGameOver;
     [SerializeField] private TMP_Text _scoreText;
     [SerializeField] private SoundManager _soundManager;
+    [SerializeField] private ParticleSystem _strikeEffect;
 
     private FrameUI[] _frames;
 
@@ -21,6 +22,7 @@ public class UIManager : MonoBehaviour
         HideStrike();
         HideSpare();
         _UIGameOver.SetActive(false);
+        _strikeEffect.gameObject.SetActive(false);
     }
 
     public void ResetFrameUIs()
@@ -48,12 +50,14 @@ public class UIManager : MonoBehaviour
     {
         _UIStrikeMessage.SetActive(true);
         _soundManager.PlaySound("strike");
+        _strikeEffect.gameObject.SetActive(true);
         Invoke("HideStrike", 2.0f);
     }
 
     private void HideStrike()
     {
         _UIStrikeMessage.SetActive(false);
+        _strikeEffect.gameObject.SetActive(false);
     }
 
     public void ShowSpare()
