@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _scoreText;
     [SerializeField] private SoundManager _soundManager;
     [SerializeField] private ParticleSystem _strikeEffect;
+    [SerializeField] private Canvas _mobileCanvas;
 
     private FrameUI[] _frames;
 
@@ -23,6 +24,11 @@ public class UIManager : MonoBehaviour
         HideSpare();
         _UIGameOver.SetActive(false);
         _strikeEffect.gameObject.SetActive(false);
+        _mobileCanvas.gameObject.SetActive(false);
+
+#if UNITY_ANDROID
+        _mobileCanvas.gameObject.SetActive(true);
+#endif
     }
 
     public void ResetFrameUIs()

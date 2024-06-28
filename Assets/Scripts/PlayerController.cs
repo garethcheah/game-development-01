@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public bool isReleased = false;
 
     private GameObject _currentBall;
+    private float _horizontalAxis;
 
     [SerializeField] private string _aimPropertyName = "Aiming";
     [SerializeField] private float _maxHorizontal = 0.5f;
@@ -47,10 +48,41 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool(_aimPropertyName, true);
     }
 
+    public void SetHorizontal(bool isLeft)
+    {
+        if (isLeft)
+        {
+            _horizontalAxis = -0.1f;
+        }
+        else
+        {
+            _horizontalAxis = 0.1f;
+        }
+    }
+
+    public void ResetHorizontal()
+    {
+        _horizontalAxis = 0.0f;
+    }
+
+    // Will be used by mobile contorls
+    public void ThrowBall()
+    {
+        _animator.SetBool(_aimPropertyName, false);
+        _rbBall = _currentBall.GetComponent<Rigidbody>();
+        _rbBall.AddForce(_animator.gameObject.transform.forward.normalized * appliedForce, ForceMode.Impulse);
+        isReleased = true;
+        _soundManager.PlaySound("throw");
+    }
+
     private void HorizontalAim()
     {
         // Gets input from axis
         float input = Input.GetAxis("Horizontal");
+
+#if UNITY_ANDROID
+        input = _horizontalAxis;
+#endif
 
         //Invert input as the left/right arrow keys are going in the opposite direction
         input = -input;
