@@ -33,7 +33,7 @@ public class Pin : MonoBehaviour
 
     public bool HasFallen()
     {
-        bool rotationChanged = Quaternion.Angle(_startRotation, transform.localRotation) > 5f;
+        bool rotationChanged = Quaternion.Angle(_startRotation, transform.localRotation) > 15.0f;
 
         return rotationChanged;
     }

@@ -70,7 +70,8 @@ public class ScoreManager : MonoBehaviour
                 if (currentFrame == 10)
                 {
                     currentThrow++; // Wait for ball 2
-                } else
+                }
+                else
                 {
                     if (_isStrike)
                     {
@@ -86,7 +87,8 @@ public class ScoreManager : MonoBehaviour
 
                 // Reset pins
                 _gameManager.ResetAllPins();
-            } else
+            }
+            else
             {
                 currentThrow++; // Wait for Ball 2
             }
@@ -110,20 +112,23 @@ public class ScoreManager : MonoBehaviour
                 if (currentFrame == 10)
                 {
                     currentThrow++; // Wait for ball 3
-                } else
+                }
+                else
                 {
                     _isSpare = true; // Because we are on the 2nd ball, this is where a spare is awarded. Spares are calculated on ball 1 (see above).
                     currentFrame++;
                     currentThrow = 1;
                     _uiManager.ShowSpare();
                 }
-            } else
+            }
+            else
             {
                 if (currentFrame == 10)
                 {
                     currentThrow = 0;
                     currentFrame = 0;
-                } else
+                }
+                else
                 {
                     currentFrame++;
                     currentThrow = 1;
