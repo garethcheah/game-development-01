@@ -45,6 +45,8 @@ public class FrameUI : MonoBehaviour
         {
             if (throwNumber == 1)
             {
+                _frameScore += score;
+
                 if (score == 10)
                 {
                     _txtThrow1.text = "X";
@@ -52,7 +54,6 @@ public class FrameUI : MonoBehaviour
                 else
                 {
                     _txtThrow1.text = score.ToString();
-                    _frameScore += score;
                 }
             }
             else if (throwNumber == 2)
